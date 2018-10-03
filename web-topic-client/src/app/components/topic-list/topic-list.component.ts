@@ -14,6 +14,11 @@ export class TopicListComponent implements OnInit {
   constructor(private topicService: TopicService) { }
 
   ngOnInit() {
+    this.refresh();
+    
+  }
+
+  public refresh(){
     this.topicService.getAll().subscribe((data: Topic[]) => {
       this.topics = data;
     })

@@ -1,3 +1,12 @@
-<p>
-  topic-form works!
-</p>
+<div class="container">
+  <h2>Add topic</h2>
+  <form (submit)="addTopic(description.value)">
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" #description id="description" >
+    </div>
+
+    <button type="submit" class="btn btn-success">Add</button>
+
+  </form>
+</div>
