@@ -24,4 +24,11 @@ export class TopicListComponent implements OnInit {
     })
   }
 
+  public deleteTopic(id:number){
+    this.topicService.delete(id).subscribe(
+      data => {alert("Succesfully deleted topic")},
+      Error => {alert("failed while deleting topic")}
+      )
+  }
+
 }

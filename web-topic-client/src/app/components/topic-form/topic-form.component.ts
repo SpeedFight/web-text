@@ -25,8 +25,5 @@ export class TopicFormComponent implements OnInit {
       data => {alert("Succesfully Added topic")},
       Error => {alert("failed while adding topic")}
       )
-
-
   }
-
 }
