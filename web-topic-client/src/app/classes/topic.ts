@@ -1,8 +1,8 @@
 export class Topic {
 
     constructor(
-        public id:number,
-        public timestamp:Date,
-        public description:string
+        public description:string,
+        public id?:number,
+        public timestamp?:Date
     ) {}
 }
