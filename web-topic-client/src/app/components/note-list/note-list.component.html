@@ -13,3 +13,22 @@
   <br>
   <br>
 </div>
+
+<div>
+    <h2>Add note</h2>
+    <form (submit)="addNote(author.value, text.value)">
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" class="form-control" #author id="author" required>
+      </div>
+      <div class="form-group">
+          <label for="text">Text:</label>
+          <input type="text" class="form-control" #text id="text" required>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Add</button>
+  
+    </form>
+
+
+</div>

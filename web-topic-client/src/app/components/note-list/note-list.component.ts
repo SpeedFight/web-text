@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { NoteService } from '../../services/note/note.service';
 import { Topic } from '../../classes/topic';
+import { Note } from '../../classes/note';
 
 @Component({
   selector: 'app-note-list',
@@ -13,6 +14,7 @@ import { Topic } from '../../classes/topic';
 export class NoteListComponent implements OnInit {
 
   topic: Topic = new Topic();
+  note: Note = new Note();
   id: number;
 
 
@@ -33,10 +35,18 @@ export class NoteListComponent implements OnInit {
   public refresh(){
     this.noteService.get(this.id).subscribe((data: Topic) => {
       this.topic = data;
-      console.log(this.id)
-      console.log(this.topic)
     })
   }
+
+  public addNote(author: string, text: string){
+    this.note.author = author;
+    this.note.text = text;
+    this.noteService.addNote(this.id, this.note).subscribe(
+      data => {alert("Succesfully added note")},
+      Error => {alert("failed while adding note")}
+      )
+  }
+  
 
 
 }
