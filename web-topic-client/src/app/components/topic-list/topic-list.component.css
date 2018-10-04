@@ -1,6 +1,8 @@
 .topic-card {
     min-width: 190px;
     height: 200px;
+    padding: 5px;
+    margin: 5px;
   }
 
   .header-toolbar{
@@ -18,4 +20,10 @@
   
   .text-area > * {
     width: 100%;
+  }
+
+  .topic-button{
+    width: 20%;
+    margin: 5px;
+    padding: 5px;
   }

@@ -9,7 +9,7 @@
 </div>
 
 <div style="padding: 10px 0px">
-  <mat-grid-list cols="3" rowHeight="200px">
+  <mat-grid-list cols="3" rowHeight="220px">
     <mat-grid-tile *ngFor="let topic of topics">
       <mat-card class="topic-card">
         <mat-card-header>
@@ -18,8 +18,8 @@
         </mat-card-header>
         <mat-card-actions>
           <div class="button-row" style="padding: 5px; align-content: space-between;">
-            <button mat-flat-button routerLink="/topic/{{topic.id}}">Show topic</button>
-            <button mat-flat-button color="warn" (click)="deleteTopic(topic.id)">Delete topic</button>
+            <button class="topic-button" mat-flat-button routerLink="/topic/{{topic.id}}">Show topic</button>
+            <button class="topic-button" mat-flat-button color="warn" (click)="deleteTopic(topic.id)">Delete topic</button>
           </div>
 
         </mat-card-actions>
