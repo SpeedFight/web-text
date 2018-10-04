@@ -1,3 +1,16 @@
 <p>
   note-list works!
 </p>
+
+
+<h2>Topic {{topic.id}}, created {{topic.timestamp}}</h2>
+<div *ngFor="let note of topic.notes">
+  <br>
+  No.{{note.id}}, Creation time: {{note.timestamp}}
+  <br>
+  Author: {{note.author}}
+  <br>
+  {{note.text}}
+  <br>
+  <br>
+</div>
