@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { TopicListComponent } from './components/topic-list/topic-list.component';
 import { TopicFormComponent } from './components/topic-form/topic-form.component';
 import { NoteListComponent } from './components/note-list/note-list.component';
+import { NoteFormComponent } from './components/note-form/note-form.component';
 
 const appRoutes: Routes = [
   { path: 'topic/:id',      component: NoteListComponent },
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     TopicListComponent,
     TopicFormComponent,
-    NoteListComponent
+    NoteListComponent,
+    NoteFormComponent
   ],
   imports: [
     BrowserModule,
