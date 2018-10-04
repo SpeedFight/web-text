@@ -15,6 +15,6 @@ export class NoteService {
 
   get(id: number) {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.get<Topic>(this.apiUrl);
+    return this.http.get<Topic>(url);
   }
 }

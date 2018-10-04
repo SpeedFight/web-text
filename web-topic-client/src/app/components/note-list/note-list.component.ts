@@ -12,7 +12,7 @@ import { Topic } from '../../classes/topic';
 
 export class NoteListComponent implements OnInit {
 
-  topic: Topic;
+  topic: Topic = new Topic();
   id: number;
 
 
@@ -24,14 +24,19 @@ export class NoteListComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
+      this.id = +params['id'];
     });
-    
+
+    this.refresh();
+  }
+
+  public refresh(){
     this.noteService.get(this.id).subscribe((data: Topic) => {
       this.topic = data;
+      console.log(this.id)
+      console.log(this.topic)
     })
-
-    console.log(this.topic.notes)
   }
+
 
 }
