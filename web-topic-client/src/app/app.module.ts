@@ -4,9 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { TopicListComponent } from './components/topic-list/topic-list.component';
-import { TopicFormComponent } from './components/topic-form/topic-form.component';
 import { NoteListComponent } from './components/note-list/note-list.component';
 const appRoutes: Routes = [
   { path: 'topic/:id',      component: NoteListComponent },
@@ -18,14 +19,14 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     TopicListComponent,
-    TopicFormComponent,
     NoteListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   exports: [
     RouterModule
