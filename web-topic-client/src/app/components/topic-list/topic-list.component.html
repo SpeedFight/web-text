@@ -5,12 +5,14 @@
   <br>
   Description: {{topic.description}}
   <br>
-  <button (click)="NIMA()">Show topic</button>
-  
+
+  <button routerLink="/topic/{{topic.id}}">Show topic</button>
   <!-- <button (click)="deleteTopic(topic.id)">Delete topic</button> -->
   <button >Delete topic</button>
   
   <br>
   <br>
 </div>
+
+<app-topic-form></app-topic-form>
 
