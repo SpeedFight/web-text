@@ -27,7 +27,7 @@ export class TopicListComponent implements OnInit {
 
   public deleteTopic(id:number){
     this.topicService.delete(id).subscribe(
-      data => {alert("Succesfully deleted topic")},
+      data => {this.refresh()},
       Error => {alert("failed while deleting topic")}
       )
   }
@@ -35,7 +35,7 @@ export class TopicListComponent implements OnInit {
   public addTopic(description:Topic["description"]){
     this.topic.description = description;
     this.topicService.add(this.topic).subscribe(
-      data => {alert("Succesfully Added topic")},
+      data => {this.refresh()},
       Error => {alert("failed while adding topic")}
       )
   }

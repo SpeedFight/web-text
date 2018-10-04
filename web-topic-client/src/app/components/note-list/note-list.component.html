@@ -14,7 +14,7 @@
             <h3 matLine style="background: #000000"> {{note.author}} </h3>
 
             <div class="button-row">
-                <button mat-stroked-button color="warn" (click)="nop()">Delete</button>
+                <button mat-stroked-button color="warn" (click)="delete(note.id)">Delete</button>
               </div>
 
             <p matLine> No.{{note.id}}, Creation time: {{note.timestamp}} </p>

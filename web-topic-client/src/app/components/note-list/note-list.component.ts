@@ -42,8 +42,15 @@ export class NoteListComponent implements OnInit {
     this.note.author = author;
     this.note.text = text;
     this.noteService.addNote(this.id, this.note).subscribe(
-      data => {alert("Succesfully added note")},
-      Error => {alert("failed while adding note")}
+      data => {this.refresh()},
+      Error => {this.refresh();alert("failed while adding note")}
+      )
+  }
+
+  public delete(id: number){
+    this.noteService.delete(id).subscribe(
+      data => {this.refresh()},
+      Error => {this.refresh();alert("failed while deleting note")}
       )
   }
   

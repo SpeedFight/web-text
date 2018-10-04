@@ -96,7 +96,7 @@ public class RestNoteController {
 	public void deleteNote(@PathVariable int noteId) {
 		Optional<Note> note = noteRepository.findById(noteId);
 
-		if (note.isPresent()) {
+		if (!note.isPresent()) {
 			throw new TopicNotFoundException("Note: " + noteId + " not exist");
 		}
 
