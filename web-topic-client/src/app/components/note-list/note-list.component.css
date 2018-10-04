@@ -1,0 +1,13 @@
+
+p.note-text {
+    padding: 5px 0px;
+}
+
+.text-area {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .text-area > * {
+    width: 100%;
+  }

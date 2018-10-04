@@ -9,16 +9,37 @@
     </mat-toolbar>
   </div>
 
-<div *ngFor="let note of topic.notes">
-  <br>
-  No.{{note.id}}, Creation time: {{note.timestamp}}
-  <br>
-  Author: {{note.author}}
-  <br>
-  {{note.text}}
-  <br>
-  <br>
-</div>
+  <mat-list>
+      <mat-list-item *ngFor="let note of topic.notes" style="padding: 5px 0px">
+            <h3 matLine style="background: #000000"> {{note.author}} </h3>
+            <p matLine> No.{{note.id}}, Creation time: {{note.timestamp}} </p>
+            <p matLine class="note-text"> {{note.text}} </p>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="container">
+        <div>
+          <mat-toolbar>
+            <mat-toolbar-row>
+              <h2>Add note</h2>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </div>
+
+        <form (submit)="addNote(author.value, text.value)">
+          <div class="text-area">
+            <mat-form-field>
+                <input matInput placeholder="Author:" type="text" #author id="author" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <textarea matInput placeholder="Note:"  #text id="text" required></textarea>
+            </mat-form-field>
+          
+          <button mat-flat-button color="warn" type="submit" class="btn btn-success">Add note</button>
+        </div>
+        </form>
+
 
 <div>
     <h2>Add note</h2>
