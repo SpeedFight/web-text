@@ -1,7 +1,13 @@
-<h2>Topic {{topic.id}}, created {{topic.timestamp}}</h2>
-<p>
-    {{topic.description}}
-</p>
+<div class="header-toolbar">
+    <mat-toolbar>
+      <mat-toolbar-row>
+          Topic {{topic.id}}, created {{topic.timestamp}}
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+          {{topic.description}}
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
 
 <div *ngFor="let note of topic.notes">
   <br>

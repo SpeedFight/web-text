@@ -1,29 +1,55 @@
-<h2>Topic list</h2>
-<div *ngFor="let topic of topics">
-  <br>
-  No.{{topic.id}}, Creation time: {{topic.timestamp}}
-  <br>
-  Description: {{topic.description}}
-  <br>
+<h2></h2>
 
-  <button routerLink="/topic/{{topic.id}}">Show topic</button>
-  <!-- <button (click)="deleteTopic(topic.id)">Delete topic</button> -->
-  <button >Delete topic</button>
-  
-  <br>
-  <br>
+<div>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <h1>Topic list</h1>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div style="padding: 10px 0px">
+  <mat-grid-list cols="3" rowHeight="200px">
+    <mat-grid-tile *ngFor="let topic of topics">
+      <mat-card class="topic-card">
+        <mat-card-header>
+          <mat-card-title style="padding: 10px 0px"> {{topic.description}} </mat-card-title>
+          <mat-card-subtitle>No.{{topic.id}}, Creation time: {{topic.timestamp}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <div class="button-row" style="padding: 5px; align-content: space-between;">
+            <button mat-flat-button routerLink="/topic/{{topic.id}}">Show topic</button>
+            <button mat-flat-button color="warn" (click)="deleteTopic(topic.id)">Delete topic</button>
+          </div>
+
+        </mat-card-actions>
+
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
 
 <div class="container">
-    <h2>Add topic</h2>
-    <form (submit)="addTopic(description.value)">
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" #description id="description" required>
-      </div>
-  
-      <button type="submit" class="btn btn-success">Add</button>
-  
-    </form>
+  <div>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <h2>Add topic</h2>
+      </mat-toolbar-row>
+    </mat-toolbar>
   </div>
 
+
+
+  <form (submit)="addTopic(description.value)">
+    <div class="text-area">
+      <mat-form-field>
+        <textarea matInput placeholder="Topic Description" #description id="description" required></textarea>
+      </mat-form-field>
+    </div>
+    <button mat-flat-button color="warn" type="submit" class="btn btn-success">Add</button>
+
+  </form>
+
+
+</div>

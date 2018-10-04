@@ -1,9 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to web note!
-  </h1>
+
+<div >
+
+    <mat-toolbar color="primary" role="heading">
+        <mat-toolbar-row>
+          <h1>Web text</h1>
+        </mat-toolbar-row>
+      
+        <mat-toolbar-row>
+            <button mat-stroked-button routerLink="/">Show all topics</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
 </div>
-<button routerLink="/">Show all topics</button>
 <router-outlet></router-outlet>
 
