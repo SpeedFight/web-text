@@ -12,6 +12,11 @@
   <mat-list>
       <mat-list-item *ngFor="let note of topic.notes" style="padding: 5px 0px">
             <h3 matLine style="background: #000000"> {{note.author}} </h3>
+
+            <div class="button-row">
+                <button mat-stroked-button color="warn" (click)="nop()">Delete</button>
+              </div>
+
             <p matLine> No.{{note.id}}, Creation time: {{note.timestamp}} </p>
             <p matLine class="note-text"> {{note.text}} </p>
       </mat-list-item>
@@ -26,10 +31,9 @@
           </mat-toolbar>
         </div>
 
-        <form (submit)="addNote(author.value, text.value)">
-          <div class="text-area">
+        <form (submit)="addNote(author.value, text.value)" class="text-area">
             <mat-form-field>
-                <input matInput placeholder="Author:" type="text" #author id="author" required>
+                <input matInput placeholder="Author:" type="text" #author value="Anon" id="author" required>
             </mat-form-field>
 
             <mat-form-field>
@@ -37,25 +41,4 @@
             </mat-form-field>
           
           <button mat-flat-button color="warn" type="submit" class="btn btn-success">Add note</button>
-        </div>
         </form>
-
-
-<div>
-    <h2>Add note</h2>
-    <form (submit)="addNote(author.value, text.value)">
-      <div class="form-group">
-        <label for="author">Author:</label>
-        <input type="text" class="form-control" #author id="author" required>
-      </div>
-      <div class="form-group">
-          <label for="text">Text:</label>
-          <input type="text" class="form-control" #text id="text" required>
-      </div>
-  
-      <button type="submit" class="btn btn-success">Add</button>
-  
-    </form>
-
-
-</div>
