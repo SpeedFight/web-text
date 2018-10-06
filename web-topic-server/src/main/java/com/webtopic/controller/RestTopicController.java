@@ -31,9 +31,6 @@ public class RestTopicController {
 	@Autowired
 	private TopicRepository topicRepository;
 
-//	@Autowired
-//	private NoteRepository noteRepository;
-
 	@GetMapping("/topic/{topicId}")
 	public TopicDto getTopic(@PathVariable int topicId) {
 
@@ -83,48 +80,4 @@ public class RestTopicController {
 
 		topicRepository.deleteById(topicId);
 	}
-
-//TODO delete later when front will be ready
-//	
-//	
-//to create random notes
-//	
-//	@GetMapping("/fillTopic")
-//	public List<Topic> addExasmpleTopic() {
-//		
-//		Topic topic1 = new Topic(0,new Date(),new ArrayList<>(),"Test1");
-//		Topic topic2 = new Topic(0,new Date(),new ArrayList<>(),"Test2");
-//		Topic topic3 = new Topic(0,new Date(),new ArrayList<>(),"Test2");
-//		
-//		List<Topic> topics = new ArrayList<>();
-//		topics.add(topic1);
-//		topics.add(topic2);
-//		topics.add(topic3);
-//		
-//		topics.forEach(e -> {
-//			for (int i = 0; i < 10; i++) {	
-//				Note randomNote = getRandomNote();
-//				e.getNotes().add(randomNote);
-//				noteService.save(randomNote);
-//			}
-//		});
-//		
-//		topics.forEach(e -> {
-//			topicService.save(e);
-//		});
-//		
-//		return getAllTopic();		
-//	}
-//	
-//	private Note getRandomNote() {
-//		
-//		List<String> authors = new ArrayList<>(Arrays.asList("Konoha", 
-//				"Yuki", "Yukari", "Zurucha", "Inori", "Niko", "Maki"));
-//	
-//		
-//		return new Note(0,new Date(), 
-//				authors.get(new Random().nextInt(authors.size())),
-//				RandomString.make(new Random().nextInt(10)+5));
-//	}
-
 }
