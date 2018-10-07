@@ -38,7 +38,6 @@ public class RestNoteController {
 	@Autowired
 	private RestTopicController restTopicController;
 
-	// TODO investigate if this method really necessary
 	@GetMapping("/topic/{topicId}/note/{noteId}")
 	public Note getNoteFromTopic(@PathVariable int topicId, @PathVariable int noteId) {
 
@@ -50,15 +49,6 @@ public class RestNoteController {
 		}
 
 		return note;
-	}
-
-	@GetMapping("/topic/{topicId}/note")
-	public List<Note> getAllNotesFromTopic(@PathVariable int topicId) {
-
-		// TODO fix
-//		return restTopicController.getTopic(topicId).getNotes();
-//		return noteRepository.findByTopic(topicId);
-		return null;
 	}
 
 	@PostMapping("/topic/{topicId}/note")
