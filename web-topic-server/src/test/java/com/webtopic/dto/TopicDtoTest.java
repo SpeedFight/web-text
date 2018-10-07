@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.webtopic.entity.Note;
 import com.webtopic.entity.Topic;
+import com.webtopic.utils.GenerateRandomTopic;
 
 import net.bytebuddy.utility.RandomString;
 
@@ -22,7 +23,7 @@ public class TopicDtoTest {
 
 	@BeforeClass
 	public static void initTopic() {
-		topics = generateRandomTopics(5);
+		topics = GenerateRandomTopic.generate(5);
 	}
 	
 	@Test
@@ -81,38 +82,5 @@ public class TopicDtoTest {
 		
 	}
 
-	private static List<Topic> generateRandomTopics(int topicsAmount) {
-		
-		List<Topic> topics = new ArrayList<>();
 
-		//generate random topics
-		Date randDate = new Date();
-		for (int i = 0; i < topicsAmount; i++) {
-			randDate = new Date(randDate.getTime() + new Random().nextLong());
-			topics.add(new Topic(0, new Date(), new ArrayList<>(), generateRandomString(5, 15)));
-		}
-
-		//fill each topic with random notes
-		topics.forEach(e -> {
-			for (int i = 0; i < 10; i++) {
-				Note randomNote = getRandomNote();
-				e.getNotes().add(randomNote);
-			}
-		});
-
-		return topics;
-	}
-
-	private static Note getRandomNote() {
-
-		List<String> authors = new ArrayList<>(
-				Arrays.asList("Konoha", "Yuki", "Yukari", "Zurucha", "Inori", "Niko", "Maki"));
-
-		return new Note(0, new Date(), authors.get(new Random().nextInt(authors.size())),
-				generateRandomString(5,15));
-	}
-	
-	private static String generateRandomString(int minLength, int MaxLenght) {
-		return RandomString.make(new Random().nextInt(MaxLenght) + minLength);
-	}
 }
