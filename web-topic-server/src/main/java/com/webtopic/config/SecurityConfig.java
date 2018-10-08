@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 
@@ -29,7 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		private final String role;	
 	}
 	
-	private final int bCryptStrength = 4;
+	private final int bCryptStrength = 12;
+	
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder(bCryptStrength);
+    }	
 	
 	@Autowired
 	private DataSource securityDataSource;
@@ -37,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication()
-        .passwordEncoder(new BCryptPasswordEncoder(bCryptStrength))
+        .passwordEncoder(encoder())
         .dataSource(securityDataSource);
 	}
 
