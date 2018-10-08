@@ -1,2 +1,5 @@
 Small online text board.
-Spring boot + Angular 6
+
+Spring boot (MVC, data, rest, security)
+Angular 6
+Database in mySQL
